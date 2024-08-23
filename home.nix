@@ -48,15 +48,19 @@
     bottom
     lazygit
     sqlite
-    gnumake
     just
     marksman
     mdl
     direnv
+    samba
+    unzip
 
     #dev tools
     nil
     nixfmt-rfc-style
+    ruff
+    gnumake
+    cmake
     shfm
     shellcheck
     lua
@@ -66,7 +70,6 @@
     marksman
     dprint
     sleek
-    pipenv
     dockerfile-language-server-nodejs
     docker-compose-language-service
     sqls
@@ -116,6 +119,37 @@
     nodePackages.eslint
     air
 
+    # rust
+    rustup
+
+    # python
+    pipenv
+    (python3.withPackages (
+      p:
+        with p; [
+          pandas
+          requests
+          numpy
+          pylint
+          # pyqt6
+          sip
+          # qtpy
+          # qt6.qtwebengine
+          epc
+          lxml
+          # pyqt6-webengine
+          pysocks
+          #pymupdf TODO pymupdf fails to build
+          markdown
+          isort
+          nose
+          pytest
+          mypy
+          pydbus
+          # dbus-python
+        ]
+    ))
+
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -160,6 +194,12 @@
     EDITOR = "nvim";
     ENVIRONMENT = "development"; # Set as environment variable
     NODE_ENV = "development"; # Set as environment variable
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "drbyronw";
+    userEmail = "byron@drbw.me";
   };
 
   # Let Home Manager install and manage itself.
