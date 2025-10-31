@@ -1,1 +1,1 @@
-# home-manager-linux
+# home-manager-nixos
